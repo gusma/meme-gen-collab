@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/bin/node /usr/share/yarn/bin/yarn.js add react react-dom
+  /usr/bin/node /usr/share/yarn/bin/yarn.js start
 
 PATH: 
   /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/mnt/c/Program Files/WindowsApps/CanonicalGroupLimited.UbuntuonWindows_1804.2019.521.0_x64__79rhkp1fndgsc:/mnt/c/Program Files (x86)/Intel/iCLS Client:/mnt/c/Program Files/Intel/iCLS Client:/mnt/c/Windows/System32:/mnt/c/Windows:/mnt/c/Windows/System32/wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0:/mnt/c/Program Files (x86)/Intel/Intel(R) Management Engine Components/DAL:/mnt/c/Program Files/Intel/Intel(R) Management Engine Components/DAL:/mnt/c/Program Files (x86)/Intel/Intel(R) Management Engine Components/IPT:/mnt/c/Program Files/Intel/Intel(R) Management Engine Components/IPT:/mnt/c/Windows/System32/OpenSSH:/mnt/c/Program Files/nodejs:/mnt/c/Ruby25-x64/bin:/mnt/c/Users/Gustavo Malamud/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/Gustavo Malamud/AppData/Local/GitHubDesktop/bin:/mnt/c/Users/Gustavo Malamud/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/Gustavo Malamud/AppData/Roaming/npm:/snap/bin
@@ -14,7 +14,12 @@ Platform:
   linux x64
 
 Trace: 
-  Error: ENOENT: no such file or directory, lstat '/home/gmalamud/.cache/yarn/v4/npm-source-map-0.5.7-8a039d2d1021d22d1ea14c80d8ea468ba2ef3fcc/node_modules/source-map/dist/source-map.js'
+  SyntaxError: /mnt/c/web/memegen/package.json: Unexpected token / in JSON at position 319
+      at JSON.parse (<anonymous>)
+      at /usr/share/yarn/lib/cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (/usr/share/yarn/lib/cli.js:304:30)
+      at /usr/share/yarn/lib/cli.js:315:13
 
 npm manifest: 
   {
@@ -29,6 +34,8 @@ npm manifest:
       "webpack-cli": "^3.3.6"
     },
     "scripts": {
+  	"webpack" : "webpack", // invoke this command from npm run dev & npm run build
+      "dev": "npm run webpack -- --mode development --watch",
       "build": "webpack --mode production"
     },
     "devDependencies": {
